@@ -1,3 +1,5 @@
+# Reference: https://github.com/bobxwu/TopMost/tree/main/topmost/models
+
 import numpy as np
 import torch
 import torch.nn as nn
@@ -63,7 +65,6 @@ class CTM(nn.Module):
         diff_term = diff * diff / self.var2
         logvar_division = self.var2.log() - logvar
         KLD = 0.5 * ((var_division + diff_term + logvar_division).sum(1) - self.num_topics)
-
         RECON = -(x * (recon_x + 1e-10).log()).sum(1)
 
         LOSS = (RECON + KLD).mean()
