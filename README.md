@@ -5,26 +5,26 @@ ProtoXTM is a novel cross-lingual neural topic modeling framework based on our d
 📄 Paper Link: https://aclanthology.org/2025.findings-emnlp.1107/
 
 
-
-
-
 ## Framework Overview
 
 <img src="Miscellaneous/ProtoXTM_framework.png" alt="ProtoXTM Framework" width="80%">
 
-- Stage1: Pre-train Mono-lingual topic models
+ProtoXTM consists of three stages, then utilize the labels of positive sample documents pre-computed in
+Stage 1 and Stage 2 to perform cross-lingual topic alignment in Stage 3 through our DPCL strategy.
+
+- Stage1: Pre-train separate VAE-based mono-lingual neural topic models
 - Stage2: Retrieval-based Positive Sampling (RPS)
-- Stage3: Cross-lingual topic model Training with Document-Level Prototype-based Contrastive Learning (DPCL)
+- Stage3: Cross-lingual neural topic model Training with Document-Level Prototype-based Contrastive Learning (DPCL)
 
 
 ## Datasets
 
-
-
+The dataset we used can be found at https://github.com/bobxwu/TopMost/tree/main/data
 
 
 ## Acknowledgements
 
+Some parts of the implementation and experiments are based on the code from [TopMost](https://github.com/bobxwu/TopMost).
 
 
 ## Citation
