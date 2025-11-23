@@ -15,15 +15,15 @@ def labels(labels_path):
     return labels_list
 
 
-theta_en = np.load("/users/seung-won/documents/AR_doc_topic_dist_en_20.npy")
-theta_cn = np.load("/users/seung-won/documents/AR_doc_topic_dist_cn_20.npy")
+theta_en = np.load("/workspace/AR_doc_topic_dist_en_20.npy")
+theta_cn = np.load("/workspace/AR_doc_topic_dist_cn_20.npy")
 
-# theta_en = np.load("/users/seung-won/documents/Overall_Results/NMTM/AR_doc_topic_dist_en_20.npy")
-# theta_cn = np.load("/users/seung-won/documents/Overall_Results/NMTM/AR_doc_topic_dist_cn_20.npy")
+# theta_en = np.load("/workspace/NMTM/AR_doc_topic_dist_en_20.npy")
+# theta_cn = np.load("/workspace/NMTM/AR_doc_topic_dist_cn_20.npy")
 
 
-labels_en_path = '/users/seung-won/documents/datasets/Amazon_Review/train_labels_en.txt'
-labels_cn_path = '/users/seung-won/documents/datasets/Amazon_Review/train_labels_cn.txt'
+labels_en_path = '/workspace/Amazon_Review/train_labels_en.txt'
+labels_cn_path = '/workspace/Amazon_Review/train_labels_cn.txt'
 
 labels_en = labels(labels_en_path)
 labels_cn = labels(labels_cn_path)
