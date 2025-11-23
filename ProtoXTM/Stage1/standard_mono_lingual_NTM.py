@@ -4,6 +4,8 @@ import torch.nn.functional as F
 import numpy as np
 from ProtoXTM.networks.Encoder import Encoder
 
+# ZeroshotTM
+# Refernece: Cross-lingual Contextualized Topic Models with Zero-shot Learning (EACL 2021)
 
 class NTM(nn.Module):
 
