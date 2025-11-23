@@ -1,13 +1,10 @@
+# Reference: https://github.com/bobxwu/TopMost/tree/main/topmost/models
+
 import torch
 from torch import nn
 
-
 class ECR(nn.Module):
-    '''
-        Effective Neural Topic Modeling with Embedding Clustering Regularization. ICML 2023
 
-        Xiaobao Wu, Xinshuai Dong, Thong Thanh Nguyen, Anh Tuan Luu.
-    '''
     def __init__(self, weight_loss_ECR, sinkhorn_alpha, OT_max_iter=5000, stopThr=.5e-2):
         super().__init__()
 
