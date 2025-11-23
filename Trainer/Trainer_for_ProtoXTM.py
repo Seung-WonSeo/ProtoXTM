@@ -6,7 +6,7 @@ def train_ProtoXTM(model, dataloader_en, dataloader_cn, optimizer, num_epochs=50
     model.train()
 
     for epoch in range(num_epochs):
-        start_time = time.time()  # 에폭 시작 시간 기록
+        start_time = time.time() 
         epoch_loss = 0.0
 
         # Zip the two dataloaders to iterate over them simultaneously
@@ -36,7 +36,7 @@ def train_ProtoXTM(model, dataloader_en, dataloader_cn, optimizer, num_epochs=50
 
             epoch_loss += total_loss.item()
 
-        end_time = time.time()  # 에폭 종료 시간 기록
+        end_time = time.time() 
         epoch_time = end_time - start_time
 
         print(f"Epoch {epoch + 1}/{num_epochs}, "
