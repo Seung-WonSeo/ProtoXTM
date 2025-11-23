@@ -1,4 +1,4 @@
-from ProtoXTM.Stage3.Encoder import Encoder
+from ProtoXTM.Stage3.ProtoXTM_with_DPCL import ProtoXTM
 
 if __name__ == "__main__":
     # Multi-lingual BERT embeddings
