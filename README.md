@@ -1,4 +1,4 @@
-## ProtoXTM: Cross-Lingual Topic Modeling with Document-Level Prototype-based Contrastive Learning (EMNLP 2025 Findings)
+# ProtoXTM: Cross-Lingual Topic Modeling with Document-Level Prototype-based Contrastive Learning (EMNLP 2025 Findings)
 
 ProtoXTM is a novel cross-lingual neural topic modeling framework based on our document-level prototype-based contrastive learning strategy.
 
