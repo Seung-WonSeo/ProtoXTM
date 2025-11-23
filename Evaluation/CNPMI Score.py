@@ -1,3 +1,5 @@
+# Reference: https://github.com/bobxwu/CNPMI
+
 import os
 import math
 from sklearn.feature_extraction.text import CountVectorizer
@@ -80,36 +82,36 @@ def process_corpus(parallel_corpus_tuples, vocab1, vocab2, word_pair_list, sep_t
 def main():
     # Define paths to the corpus and vocab files
     english_corpus_files = [
-        '/users/seung-won/documents/Evaluation/CNPMI/ref_corpus/en-cn/wikicomp-2014_enzh.xml_1-20000_en.txt',
-        '/users/seung-won/documents/Evaluation/CNPMI/ref_corpus/en-cn/wikicomp-2014_enzh.xml_20001-40000_en.txt',
-        '/users/seung-won/documents/Evaluation/CNPMI/ref_corpus/en-cn/wikicomp-2014_enzh.xml_40001-60000_en.txt',
-        '/users/seung-won/documents/Evaluation/CNPMI/ref_corpus/en-cn/wikicomp-2014_enzh.xml_60001-80000_en.txt',
-        '/users/seung-won/documents/Evaluation/CNPMI/ref_corpus/en-cn/wikicomp-2014_enzh.xml_80001-100000_en.txt'
+        '/workspace/Evaluation/ref_corpus/en-cn/wikicomp-2014_enzh.xml_1-20000_en.txt',
+        '/workspace/Evaluation/ref_corpus/en-cn/wikicomp-2014_enzh.xml_20001-40000_en.txt',
+        '/workspace/Evaluation/ref_corpus/en-cn/wikicomp-2014_enzh.xml_40001-60000_en.txt',
+        '/workspace/Evaluation/ref_corpus/en-cn/wikicomp-2014_enzh.xml_60001-80000_en.txt',
+        '/workspace/Evaluation/ref_corpus/en-cn/wikicomp-2014_enzh.xml_80001-100000_en.txt'
         # Add more files as needed
     ]
     chinese_corpus_files = [
-        '/users/seung-won/documents/Evaluation/CNPMI/ref_corpus/en-cn/wikicomp-2014_enzh.xml_1-20000_zh.txt',
-        '/users/seung-won/documents/Evaluation/CNPMI/ref_corpus/en-cn/wikicomp-2014_enzh.xml_20001-40000_zh.txt',
-        '/users/seung-won/documents/Evaluation/CNPMI/ref_corpus/en-cn/wikicomp-2014_enzh.xml_40001-60000_zh.txt',
-        '/users/seung-won/documents/Evaluation/CNPMI/ref_corpus/en-cn/wikicomp-2014_enzh.xml_60001-80000_zh.txt',
-        '/users/seung-won/documents/Evaluation/CNPMI/ref_corpus/en-cn/wikicomp-2014_enzh.xml_80001-100000_zh.txt'
+        '/workspace/Evaluation/ref_corpus/en-cn/wikicomp-2014_enzh.xml_1-20000_zh.txt',
+        '/workspace/Evaluation/ref_corpus/en-cn/wikicomp-2014_enzh.xml_20001-40000_zh.txt',
+        '/workspace/Evaluation/ref_corpus/en-cn/wikicomp-2014_enzh.xml_40001-60000_zh.txt',
+        '/workspace/Evaluation/ref_corpus/en-cn/wikicomp-2014_enzh.xml_60001-80000_zh.txt',
+        '/workspace/Evaluation/ref_corpus/en-cn/wikicomp-2014_enzh.xml_80001-100000_zh.txt'
         # Add more files as needed
     ]
     parallel_corpus_tuples = list(zip(english_corpus_files, chinese_corpus_files))
 
     # Load vocabularies
-    vocab1 = load_vocab('/users/seung-won/documents/datasets/Amazon_Review/AR_vocab_en')
-    vocab2 = load_vocab('/users/seung-won/documents/datasets/Amazon_Review/AR_vocab_cn')
+    vocab1 = load_vocab('/workspace/Amazon_Review/AR_vocab_en')
+    vocab2 = load_vocab('/workspace/Amazon_Review/AR_vocab_cn')
     
     sep_token = '|'
 
     # Load English and Chinese topics
-    # topics1 = load_topics("/users/seung-won/documents/ECN_topic_en_20.txt")
-    # topics2 = load_topics("/users/seung-won/documents/ECN_topic_cn_20.txt")
-    # topics1 = load_topics("/users/seung-won/documents/Overall_Results/NMTM/AR_topic_en_10.txt")
-    # topics2 = load_topics("/users/seung-won/documents/Overall_Results/NMTM/AR_topic_cn_10.txt")
-    topics1 = load_topics("/users/seung-won/documents/topic_en.txt")
-    topics2 = load_topics("/users/seung-won/documents/topic_cn.txt")
+    # topics1 = load_topics("/workspace/ECN_topic_en_20.txt")
+    # topics2 = load_topics("/workspace/ECN_topic_cn_20.txt")
+    # topics1 = load_topics("/workspace/NMTM/AR_topic_en_10.txt")
+    # topics2 = load_topics("/workspace/NMTM/AR_topic_cn_10.txt")
+    topics1 = load_topics("/workspace/topic_en.txt")
+    topics2 = load_topics("/workspace/topic_cn.txt")
 
     num_topic = len(topics1)
     num_top_word = len(topics1[0])
