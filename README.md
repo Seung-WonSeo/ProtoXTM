@@ -10,7 +10,7 @@ ProtoXTM is a novel cross-lingual neural topic modeling framework based on our d
 
 ## Framework Overview
 
-
+![ProtoXTM Framework](Miscellaneous/ProtoXTM_framework.png)
 
 
 
