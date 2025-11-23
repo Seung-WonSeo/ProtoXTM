@@ -62,7 +62,7 @@ train_texts_cn = read_text(train_texts_cn_path)
 topic_en_trans = clean_topic_words(topic_en_trans)
 topic_cn_trans = clean_chinese_topic_words(topic_cn_trans)
 
-
+# Word Replacement 
 def paraphrasing(topic_en_trans, vocab_en, ft_en, threshold):
     processed_topics = []
     
