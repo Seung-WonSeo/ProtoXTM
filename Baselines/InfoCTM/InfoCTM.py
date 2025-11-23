@@ -2,7 +2,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from topmost.models.Encoder import MLPEncoder
+from ProtoXTM.networks.Encoder import Encoder
 from .TAMI import TAMI
 
 
@@ -17,8 +17,8 @@ class InfoCTM(nn.Module):
 
         self.num_topics = num_topics
 
-        self.encoder_en = MLPEncoder(vocab_size_en, num_topics, en_units, dropout)
-        self.encoder_cn = MLPEncoder(vocab_size_cn, num_topics, en_units, dropout)
+        self.encoder_en = Encoder(vocab_size_en, num_topics, en_units, dropout)
+        self.encoder_cn = Encoder(vocab_size_cn, num_topics, en_units, dropout)
 
         self.a = 1 * np.ones((1, int(num_topics))).astype(np.float32)
         self.mu2 = nn.Parameter(torch.as_tensor((np.log(self.a).T - np.mean(np.log(self.a), 1)).T), requires_grad=False)
