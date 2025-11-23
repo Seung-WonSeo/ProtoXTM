@@ -1,3 +1,5 @@
+# Reference: https://github.com/bobxwu/TopMost/tree/main/topmost/models
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -5,11 +7,7 @@ import numpy as np
 
 
 class NMTM(nn.Module):
-    '''
-        Learning Multilingual Topics with Neural Variational Inference. NLPCC 2020.
 
-        Xiaobao Wu, Chunping Li, Yan Zhu, Yishu Miao.
-    '''
     def __init__(self, Map_en2cn, Map_cn2en, vocab_size_en, vocab_size_cn, num_topics=50, en_units=200, dropout=0., lam=0.8):
         super().__init__()
 
