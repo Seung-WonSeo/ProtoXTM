@@ -164,7 +164,7 @@ top_documents_en_200 = get_top_documents_for_topics(paraphrasing_topics_en, trai
 top_documents_cn_200 = get_top_documents_for_topics(paraphrasing_topics_cn, train_texts_cn, top_n=30)
 
 
-# Pseudo Labeling
+# Pseudo Labeling (Positive Sampling) for DPCL in Stage3
 from collections import defaultdict
 def pseudo_label_documents(top_documents, total_docs):
 
