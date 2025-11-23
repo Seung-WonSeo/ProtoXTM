@@ -7,17 +7,18 @@ from sklearn.preprocessing import normalize
 from ProtoXTM.networks.Encoder import Encoder
 
 
-class RPS_XTM(nn.Module):
+class ProtoXTM(nn.Module):
 
     def __init__(self, input_size, vocab_size_en, vocab_size_cn,
                  num_topics, DCL_weight, temperature, en_units=200, dropout=0.1):
         
         super().__init__()
         
-        self.DCL_weight = DCL_weight
+        self.DPCL_weight = DPCL_weight
         self.num_topics = num_topics
         self.temperature = temperature
-        
+
+        # Shared Encoder Network
         self.encoder = Encoder(input_size, num_topics, en_units, dropout)
         # self.encoder_en = Encoder(input_size, num_topics, en_units, dropout)
         # self.encoder_cn = Encoder(input_size, num_topics, en_units, dropout)
@@ -86,13 +87,13 @@ class RPS_XTM(nn.Module):
         
         dcl_loss = 0.
         
-        dcl_loss_e2c = self.compute_dcl_loss(z_en, z_cn, labels_en, labels_e2c)
-        dcl_loss_c2e = self.compute_dcl_loss(z_cn, z_en, labels_cn, labels_c2e)
+        dpcl_loss_e2c = self.compute_dpcl_loss(z_en, z_cn, labels_en, labels_e2c)
+        dpcl_loss_c2e = self.compute_dpcl_loss(z_cn, z_en, labels_cn, labels_c2e)
         
-        dcl_loss = dcl_loss_e2c + dcl_loss_c2e
-        # dcl_loss = dcl_loss_e2c
-        # dcl_loss = dcl_loss_c2e
-        dcl_loss = self.DCL_weight * dcl_loss
+        dpcl_loss = dpcl_loss_e2c + dpcl_loss_c2e
+        # dpcl_loss = dpcl_loss_e2c
+        # dpcl_loss = dpcl_loss_c2e
+        dpcl_loss = self.DPCL_weight * dpcl_loss
         
         theta_en = self.get_theta(z_en)
         theta_cn = self.get_theta(z_cn)
@@ -108,11 +109,11 @@ class RPS_XTM(nn.Module):
 
         TM_loss = loss_en + loss_cn
 
-        total_loss = TM_loss + dcl_loss
+        total_loss = TM_loss + dpcl_loss
         
         rst_dict = {
             'topic_modeling_loss': TM_loss,
-            'contrastive_loss': dcl_loss,
+            'contrastive_loss': dpcl_loss,
             'total_loss': total_loss
         }
 
@@ -132,7 +133,7 @@ class RPS_XTM(nn.Module):
         return LOSS
     
     
-    def compute_dcl_loss(self, z_en, z_cn, labels_en, labels_e2c):
+    def compute_dpcl_loss(self, z_en, z_cn, labels_en, labels_e2c):
         batch_size, embedding_dim = z_en.size()
 
         # Initialize prototypes for each label
