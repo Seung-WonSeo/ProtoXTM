@@ -6,7 +6,7 @@ import torch.nn.functional as F
 import numpy as np
 
 
-class MLPEncoder(nn.Module):
+class Encoder(nn.Module):
     
     def __init__(self, vocab_size, num_topic, hidden_dim, dropout):
         super().__init__()
