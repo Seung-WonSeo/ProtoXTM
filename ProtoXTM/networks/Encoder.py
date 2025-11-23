@@ -1,3 +1,5 @@
+# Reference: https://github.com/bobxwu/TopMost/tree/main/topmost/models
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
