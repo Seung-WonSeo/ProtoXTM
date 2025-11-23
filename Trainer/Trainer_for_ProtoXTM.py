@@ -1,7 +1,7 @@
 import time
 import torch
 
-def train_ProtoXTM(model, dataloader_en, dataloader_cn, optimizer, num_epochs=500, device='cpu'):
+def train_ProtoXTM(model, dataloader_en, dataloader_cn, optimizer, num_epochs=500, device='cuda'):
     model.to(device)
     model.train()
 
