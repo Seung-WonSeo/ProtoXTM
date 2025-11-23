@@ -1,3 +1,5 @@
+from ProtoXTM.Stage3.Encoder import Encoder
+
 if __name__ == "__main__":
     # Multi-lingual BERT embeddings
     doc_embeddings_en_path = "/workspace/Amazon_Review/AR_sbert_doc_embeddings_en.npz"
